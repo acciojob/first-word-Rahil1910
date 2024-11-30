@@ -1,19 +1,20 @@
 function firstWord(s) {
   // your code here
-	let cntW=0;
 	let ans="";
+	let foundWord = false;
 	for(let i=0;i<s.length;i++){
-		if(s[i]==" "&&cntW==0){
+		if(s[i]==" "&& !foundWord){
 			continue;
 		}
-		cntW++;
-		ans+=s[i];
-		if(s[i]==" "&&cntW>0){
-			return ans;
-		}
+		if (s[i] !== " ") {
+			ans += s[i]; // Add characters to the answer
+		    foundWord = true; // Mark that we have found the first word
+	    } else if (s[i] === " " && foundWord) {
+		    return ans;
+    }
 	}
 }
- 
+  
 // Do not change the code below
 
 const s = prompt("Enter String:");
